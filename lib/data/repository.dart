@@ -1,4 +1,3 @@
-
 abstract class ListRepository<T> {
   Future<Iterable<T>> fetch(int page, int limit);
 
@@ -6,4 +5,3 @@ abstract class ListRepository<T> {
 
   Future<bool> remove(T item);
 }
-

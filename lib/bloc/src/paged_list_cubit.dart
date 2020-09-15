@@ -15,7 +15,8 @@ class ListCubit<T> extends Cubit<PagedListAsyncState> {
       final items = await repository.fetch(1, _limit);
       final isFinished = items.length < _limit;
       // ОБНОВЛЯЕМ STATE
-      emit(PagedListAsyncState.success(1, List<dynamic>.unmodifiable(items), isFinished: isFinished));
+      emit(PagedListAsyncState.success(1, List<dynamic>.unmodifiable(items),
+          isFinished: isFinished));
     } catch (error) {
       // ОБРАБАТЫВАЕМ ОШИБКУ
       emit(PagedListAsyncState.error(0, error));
@@ -33,8 +34,8 @@ class ListCubit<T> extends Cubit<PagedListAsyncState> {
       final items = await repository.fetch(nextPage, _limit);
       final isFinished = items.length < _limit;
       final newItems = state.payload.toList()..addAll(items);
-      emit(
-          PagedListAsyncState.success(state.page, newItems, isFinished: isFinished));
+      emit(PagedListAsyncState.success(state.page, newItems,
+          isFinished: isFinished));
       print('${state.payload.length}');
     } catch (error) {
       // ОБРАБАТЫВАЕМ ОШИБКУ

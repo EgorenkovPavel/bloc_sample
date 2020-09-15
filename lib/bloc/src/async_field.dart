@@ -75,7 +75,8 @@ class PagedListAsyncState<T> extends AsyncState<Iterable<T>> {
 
   factory PagedListAsyncState.error(int page, dynamic error,
           {Iterable<T> payload}) =>
-      PagedListAsyncState(page, payload: payload, inProgress: false, error: error);
+      PagedListAsyncState(page,
+          payload: payload, inProgress: false, error: error);
 
   factory PagedListAsyncState.success(int page, Iterable<T> payload,
           {bool isFinished = false}) =>
@@ -94,7 +95,12 @@ class PagedListAsyncState<T> extends AsyncState<Iterable<T>> {
           iterableEquals(payload, other.payload);
 
   @override
-  int get hashCode => error.hashCode ^ inProgress.hashCode ^ page.hashCode ^ isFinished.hashCode ^ identityHashCode(payload);
+  int get hashCode =>
+      error.hashCode ^
+      inProgress.hashCode ^
+      page.hashCode ^
+      isFinished.hashCode ^
+      identityHashCode(payload);
 
   @override
   String toString() {

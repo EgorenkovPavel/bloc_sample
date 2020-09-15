@@ -22,8 +22,7 @@ class UserListItem extends StatelessWidget {
                 icon: Icon(Icons.remove_circle),
                 color: Colors.red,
                 onPressed: () {
-                  BlocProvider.of<ListCubit<User>>(context)
-                      .deleteItem(item);
+                  BlocProvider.of<ListCubit<User>>(context).deleteItem(item);
                 },
               ),
             ),

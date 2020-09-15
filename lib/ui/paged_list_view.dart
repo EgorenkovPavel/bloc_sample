@@ -1,7 +1,8 @@
 import 'package:cubit_sample/bloc/bloc_list.dart';
 import 'package:flutter/material.dart';
 
-typedef ListItemWidgetBuilder<T> = Widget Function(BuildContext context, T item);
+typedef ListItemWidgetBuilder<T> = Widget Function(
+    BuildContext context, T item);
 
 class PagedListView extends StatelessWidget {
   final VoidCallback onLoadNextPage;
